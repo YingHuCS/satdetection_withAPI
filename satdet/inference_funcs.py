@@ -3,13 +3,11 @@ from tools import inference_detector
 from utils import load_checkpoint, Config
 
 
-#in_img_path = '/data/P0026_s15__1__3072___0.png'
-
-cfg = Config.fromfile('/satdet/configs/faster_rcnn_x101_64x4d_fpn_1x_dota.py')
+cfg = Config.fromfile('/satdetection/satdet/configs/faster_rcnn_x101_64x4d_fpn_1x_dota.py')
 cfg.model.pretrained = None
 
 model = build_detector(cfg.model, test_cfg=cfg.test_cfg)
-_ = load_checkpoint(model, '/satdet/trained_checkpoints/epoch1_8078_finetune0002.pth')
+_ = load_checkpoint(model, '/satdetection/satdet/trained_checkpoints/epoch1_8078_finetune0002.pth')
 
 print('------The model has been loaded.-----')
 
